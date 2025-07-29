@@ -1,61 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0" />
         <title>Translate it</title>
-        <style>
-            .translate-variant {
-                margin: 3px;
-                padding: 3px;
-                border: solid 1px black;
-            }
-            .translate-variant:hover {
-                cursor: pointer;
-                background-color: silver;
-            }
-        </style>
+        <link rel="stylesheet" href="translate_it.css" />
     </head>
     <body>
         <h1>Игра "Переводчик"</h1>
-        <button onclick="startGame()">Начать игру</button>
-        <h2>Переведи фразу</h2>
-        <div>
-            <p id="phrase"></p>
-            <h3>Выбери вариант ответа</h3>
-            <div id="translation"></div>
+        <button onclick="start(event)">Начать игру</button>
+        <div class="game-container hide" id="game-container">
+            <h2>Переведи фразу</h2>
+            <div class="select-variant">
+                <p id="phrase"></p>
+                <h3>Выбери вариант ответа</h3>
+                <div id="translation"></div>
+            </div>
+            <h2>Счет</h2>
+            <div id="points">0</div>
         </div>
-        <h2>Счет</h2>
-        <p id="points">0</p>
         <script src="translate_it.js"></script>
         <script type="text/javascript">
             const dictionary = {
-               'head': 'голова',
-               'body': 'тело',
-               'title': 'заголовок',
-               'color': 'цвет',
-               'white': 'белый',
-               'blue': 'синий',
-               'red': 'красный',
-               'style': 'стиль',
-               'width': 'ширина',
-               'solid': 'сплошной',
-               'black': 'черный',
-               'background': 'фон',
-               'game': 'игра',
-               'start': 'начать',
-               'translation': 'перевод',
-               'phrase': 'фраза',
-               'ask': 'спросить',
-               'word': 'слово',
+                head: "голова",
+                body: "тело",
+                title: "заголовок",
+                color: "цвет",
+                white: "белый",
+                blue: "синий",
+                red: "красный",
+                style: "стиль",
+                width: "ширина",
+                solid: "сплошной",
+                black: "черный",
+                background: "фон",
+                game: "игра",
+                start: "начать",
+                translation: "перевод",
+                phrase: "фраза",
+                ask: "спросить",
+                word: "слово"
+            };
+            const maxFails = 3;
+
+            function start(event) {
+                const gameContainer = document.getElementById("game-container");
+                const game = new TranslateIt(gameContainer, dictionary, maxFails)
+                game.startGame(event);
             }
-            const pointsStep = 10
-            const maxFails = 3
-            let points = 0
-            let fails = 0
-            let currentWord = ''
-            const pointsElement = document.getElementById('points')
-            const phraseElement = document.getElementById('phrase')
-            const translationElement = document.getElementById('translation')
         </script>
     </body>
 </html>
