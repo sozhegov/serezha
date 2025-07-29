@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Translate it</title>
+        <style>
+            .translate-variant {
+                margin: 3px;
+                padding: 3px;
+                border: solid 1px black;
+            }
+            .translate-variant:hover {
+                cursor: pointer;
+                background-color: silver;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Игра "Переводчик"</h1>
+        <button onclick="startGame()">Начать игру</button>
+        <h2>Переведи фразу</h2>
+        <div>
+            <p id="phrase"></p>
+            <h3>Выбери вариант ответа</h3>
+            <div id="translation"></div>
+        </div>
+        <h2>Счет</h2>
+        <p id="points">0</p>
+        <script src="translate_it.js"></script>
+        <script type="text/javascript">
+            const dictionary = {
+               'head': 'голова',
+               'body': 'тело',
+               'title': 'заголовок',
+               'color': 'цвет',
+               'white': 'белый',
+               'blue': 'синий',
+               'red': 'красный',
+               'style': 'стиль',
+               'width': 'ширина',
+               'solid': 'сплошной',
+               'black': 'черный',
+               'background': 'фон',
+               'game': 'игра',
+               'start': 'начать',
+               'translation': 'перевод',
+               'phrase': 'фраза',
+               'ask': 'спросить',
+               'word': 'слово',
+            }
+            const pointsStep = 10
+            const maxFails = 3
+            let points = 0
+            let fails = 0
+            let currentWord = ''
+            const pointsElement = document.getElementById('points')
+            const phraseElement = document.getElementById('phrase')
+            const translationElement = document.getElementById('translation')
+        </script>
+    </body>
+</html>
