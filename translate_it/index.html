@@ -10,14 +10,7 @@
         <h1>Игра "Переводчик"</h1>
         <button onclick="start(event)">Начать игру</button>
         <div class="game-container hide" id="game-container">
-            <h2>Переведи фразу</h2>
-            <div class="select-variant">
-                <p id="phrase"></p>
-                <h3>Выбери вариант ответа</h3>
-                <div id="translation"></div>
-            </div>
-            <h2>Счет</h2>
-            <div id="points">0</div>
+
         </div>
         <script src="translate_it.js"></script>
         <script type="text/javascript">
@@ -39,7 +32,16 @@
                 translation: "перевод",
                 phrase: "фраза",
                 ask: "спросить",
-                word: "слово"
+                word: "слово",
+                select: "выбирать",
+                table: "таблица",
+                line: "линия",
+                circle: "окружность",
+                point: "очко",
+                hide: "прятать",
+                show: "показывать",
+                event: "событие",
+                bug: "жук"
             };
             const maxFails = 3;
 
